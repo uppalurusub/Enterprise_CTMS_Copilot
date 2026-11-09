@@ -1,0 +1,199 @@
+1. Trial Planning
+{
+  "question": "Summarize the study design and inclusion criteria for Trial TRL-1001.",
+  "session_id": "SESSION-001",
+  "user_id": "CRA100",
+  "role": "CRA",
+  "trial_id": "TRL-1001",
+  "protocol_id": "PROT-1001",
+  "module": "trial_planning",
+  "enable_sql_agent": true,
+  "enable_rag": true,
+  "top_k": 5,
+  "document_types": [
+    "Protocol",
+    "Investigator Brochure"
+  ],
+  "filters": {
+    "country": "India",
+    "status": "Active"
+  },
+  "temperature": 0.2,
+  "max_tokens": 1500,
+  "chat_history": [],
+  "metadata": {
+    "application": "Enterprise CTMS Copilot"
+  }
+}
+2. Budget Management
+{
+  "question": "Show budget utilization and remaining budget for Trial TRL-1001.",
+  "session_id": "SESSION-002",
+  "user_id": "FIN001",
+  "role": "Finance Manager",
+  "trial_id": "TRL-1001",
+  "budget_id": "BUD-2026-001",
+  "module": "budget_management",
+  "enable_sql_agent": true,
+  "enable_rag": true,
+  "top_k": 5,
+  "document_types": [
+    "Budget",
+    "Contract"
+  ],
+  "filters": {
+    "country": "India",
+    "status": "Active"
+  },
+  "temperature": 0.2,
+  "max_tokens": 1500,
+  "chat_history": [],
+  "metadata": {
+    "application": "Enterprise CTMS Copilot"
+  }
+}
+3. Monitoring
+{
+  "question": "Show active monitoring visits for Trial TRL-1001.",
+  "session_id": "SESSION-003",
+  "user_id": "CRA100",
+  "role": "CRA",
+  "trial_id": "TRL-1001",
+  "site_id": "SITE-101",
+  "monitoring_visit_id": "MV-2026-010",
+  "module": "monitoring",
+  "enable_sql_agent": true,
+  "enable_rag": true,
+  "top_k": 5,
+  "document_types": [
+    "Protocol",
+    "Monitoring Report"
+  ],
+  "filters": {
+    "country": "India",
+    "status": "Active"
+  },
+  "temperature": 0.2,
+  "max_tokens": 1500,
+  "chat_history": [],
+  "metadata": {
+    "application": "Enterprise CTMS Copilot"
+  }
+}
+4. Site Management
+{
+  "question": "Identify high-risk clinical sites with overdue monitoring visits.",
+  "session_id": "SESSION-004",
+  "user_id": "CRA100",
+  "role": "CRA",
+  "trial_id": "TRL-1001",
+  "site_id": "SITE-205",
+  "module": "site_management",
+  "enable_sql_agent": true,
+  "enable_rag": true,
+  "top_k": 5,
+  "document_types": [
+    "Site Feasibility Report",
+    "Monitoring Plan",
+    "Site Initiation Report"
+  ],
+  "filters": {
+    "country": "India",
+    "status": "Active"
+  },
+  "temperature": 0.2,
+  "max_tokens": 1500,
+  "chat_history": [],
+  "metadata": {
+    "application": "Enterprise CTMS Copilot"
+  }
+}
+5. Patient Recruitment
+{
+  "question": "Show recruitment progress and identify sites with low enrollment.",
+  "session_id": "SESSION-005",
+  "user_id": "PM001",
+  "role": "Project Manager",
+  "trial_id": "TRL-1001",
+  "site_id": "SITE-101",
+  "patient_id": "PAT-10025",
+  "module": "patient_recruitment",
+  "enable_sql_agent": true,
+  "enable_rag": true,
+  "top_k": 5,
+  "document_types": [
+    "Recruitment Plan",
+    "Study Protocol"
+  ],
+  "filters": {
+    "country": "India",
+    "status": "Active"
+  },
+  "temperature": 0.2,
+  "max_tokens": 1500,
+  "chat_history": [],
+  "metadata": {
+    "application": "Enterprise CTMS Copilot"
+  }
+}
+6. Auto Module (Supervisor Chooses the Agent)
+{
+  "question": "Which sites have low recruitment and overdue monitoring visits, and what corrective actions do you recommend?",
+  "session_id": "SESSION-006",
+  "user_id": "CRA100",
+  "role": "CRA",
+  "trial_id": "TRL-1001",
+  "module": "auto",
+  "enable_sql_agent": true,
+  "enable_rag": true,
+  "top_k": 5,
+  "document_types": [
+    "Protocol",
+    "Monitoring Report",
+    "Recruitment Plan",
+    "Site Feasibility Report"
+  ],
+  "filters": {
+    "country": "India",
+    "status": "Active"
+  },
+  "temperature": 0.2,
+  "max_tokens": 2000,
+  "chat_history": [],
+  "metadata": {
+    "application": "Enterprise CTMS Copilot"
+  }
+}
+Additional Example Questions by Module
+Trial Planning
+Create a Phase III oncology study design.
+Summarize the study protocol.
+Generate inclusion and exclusion criteria.
+Explain the primary and secondary endpoints.
+Create a visit schedule.
+Budget Management
+Show budget utilization.
+List pending investigator payments.
+Generate budget variance analysis.
+Show milestone payments.
+Forecast remaining budget.
+Monitoring
+Show overdue monitoring visits.
+List open monitoring findings.
+Identify protocol deviations.
+Generate CAPA recommendations.
+Show pending SDV activities.
+Site Management
+Show active clinical sites.
+Identify high-risk sites.
+List delayed site activations.
+Compare investigator performance.
+Generate site performance report.
+Patient Recruitment
+Show recruitment progress.
+Identify low enrollment sites.
+List screening failures.
+Generate recruitment forecast.
+Show patient dropout trends.
+
+These examples are fully compatible with the CTMSRequest model you've implemented and demonstrate how to invoke each specialized agent as well as the supervisor's automatic routing mode.

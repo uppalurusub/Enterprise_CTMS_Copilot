@@ -1,0 +1,72 @@
+Entity Relationship Diagram
+===========================
+
+                                    +----------------------+
+                                    |       STUDIES        |
+                                    +----------------------+
+                                    | study_id (PK)        |
+                                    | protocol_id          |
+                                    | study_name           |
+                                    | phase                |
+                                    | therapeutic_area     |
+                                    | sponsor             |
+                                    | indication          |
+                                    | start_date          |
+                                    | end_date            |
+                                    | target_enrollment   |
+                                    | status              |
+                                    | country             |
+                                    +----------+-----------+
+                                               |
+                          1                    | M
+                                               |
+                    +--------------------------+-----------------------+
+                    |                                                  |
+                    |                                                  |
+          +---------v---------+                            +-----------v-----------+
+          |      SITES        |                            |    RECRUITMENT        |
+          +-------------------+                            +------------------------+
+          | site_id (PK)      |                            | recruitment_id (PK)    |
+          | study_id (FK)      |                            | study_id (FK)          |
+          | site_name          |                            | site_id (FK)           |
+          | investigator       |                            | screening_count        |
+          | country            |                            | enrolled_count         |
+          | city               |                            | randomized_count       |
+          | activation_date    |                            | completed_count        |
+          | status             |                            | dropout_count          |
+          +---------+----------+                            | recruitment_status     |
+                    |                                       +------------------------+
+                    |
+                    | 1
+                    |
+                    | M
+        +-----------v----------------+
+        |    MONITORING_VISITS       |
+        +----------------------------+
+        | visit_id (PK)              |
+        | study_id (FK)              |
+        | site_id (FK)               |
+        | visit_type                 |
+        | visit_date                 |
+        | cra_name                   |
+        | findings                   |
+        | deviation_count            |
+        | sdv_completed              |
+        | status                     |
+        +-------------+--------------+
+                      |
+                      |1
+                      |
+                      |M
+      +---------------v----------------+
+      |    CORRECTIVE_ACTIONS          |
+      +--------------------------------+
+      | capa_id (PK)                   |
+      | visit_id (FK)                  |
+      | action_description             |
+      | owner                          |
+      | due_date                       |
+      | priority                       |
+      | status                         |
+      | completion_date                |
+      +--------------------------------+
